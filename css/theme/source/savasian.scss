@@ -1,0 +1,94 @@
+/**
+ * Solarized Dark theme for reveal.js.
+ * Author: Achim Staebler
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+
+// Solarized colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Theme colors
+$dark-blue: #14133b;
+$fuschia: #9e023b;
+$yellow: #f2a324;
+$orange: #f6433e;
+$beige: #f4d1a6;
+$gainsboro: #dcdcdc;
+$white: #fff;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $beige;
+$headingColor: lighten($fuschia, 10%);
+$headingTextShadow: none;
+$backgroundColor: $dark-blue;
+$linkColor: $orange;
+$linkColorHover: $yellow;
+$selectionColor: $mainColor;
+$selectionBackgroundColor: lighten($orange, 20%);
+
+$headingFont: 'Ubuntu Condensed', Impact, sans-serif;
+$mainFont: 'Source Sans Pro', sans-serif;
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+/*********************************************
+ * THEME OVERRIDES
+ *********************************************/
+body {
+  background: $dark-blue url("../../images/logo.png") no-repeat fixed 2% 2%;
+}
+
+.reveal {
+
+  h1 { color: $orange; }
+
+  p { text-align: left; }
+
+  .centered { text-align: center; }
+
+  blockquote {
+    border-radius: 0 10px 10px 0;
+    color: $dark-blue;
+    padding: 15px;
+    background: rgba(244, 209, 166, .8);
+    text-align: left; 
+  }
+}
+
+
+
