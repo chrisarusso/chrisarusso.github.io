@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Building a custom theme in Drupal 8</title>
+		<title>Personal git workflow... for everyone!</title>
 
-		<meta name="description" content="Building a custom theme in Drupal 8">
-		<meta name="author" content="Anne Tomasevich">
+		<meta name="description" content="Personal git workflow... for everyone!">
+		<meta name="author" content="Chris Ruso">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -41,121 +41,158 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Building a custom theme in Drupal 8</h1>
-					<h3>Based on the Classy base theme</h3>
+					<h1>Personal git workflow... for everyone!</h1>
+					<h3>for better, collaborative development</h3>
 					<p class="centered">
-						<small>Presentation by Anne Tomasevich</small>
+						<small>Presentation by Chris Russo</small>
 					</p>
 				</section>
 
 				<section>
 					<h2>Agenda</h2>
 					<ul>
-						<li>What's changing?</li>
-						<li>Let's make a theme</li>
-						<li>Twig basics and debugging</li>
+						<li>Brief discussion of what git is</li>
+						<li>Discuss the why of the proposed workflow</li>
+						<li>Look at the theory</li>
+						<li>Do the workflow live</li>
+						<li>Q&A</li>
 					</ul>
 				</section>
 
-				<!-- SECTION 1: WHAT'S CHANGING -->
+				<section>
+					<h3>Prerequesites</h3>
+					<h6>It's <i>best</i> if you already...</h6>
+					<li>use git for your development</li>
+					<li>know the <code>git add</code>, commit, push, and pull commands</li>
+					<li>know that I'm sassy</li>
+				</section>
 
-				<!-- 1A: What's new in Drupal 8 -->
+				<section>
+					<h2>What is git?</h2>
+					<ul>
+						<li><a href="">git</a> is a <em>distributed</em> SCMS software tool optimized for
+							<ul>
+								<li>team collaboration</li>
+								<li>documentation</li>
+								<li>deployment</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What <i>isn't</i> git?</h2>
+					Lots of things, but we won't talk about any of that.
+					<br />
+					<p><small>queue: You should now be in histerics</small></p>
+				</section>
+
 				<section>
 					<section>
-						<h2>What's changing?</h2>
-						<p class="centered"><small>...and how do I, a person who probably doesn't like change, cope with these changes...</small></p>
+					<h2>What are we trying to accomplish</h2>
+					<h4>The idea of the proposed workflow ensures that you are...</h4>
+					<ul>
+						<li>backing up code frequently</li>
+						<li>are not letting <i>your</i> perfectionism to get in the way of <i>your</i> development</li>
+						<li>Sharing the best of your code with your peers regardless of what your journey looked like</li>
+					</ul>
 					</section>
-
 					<section>
-						<h2>What's new in Drupal 8?</h2>
-						<ul>
-							<li>Twig, a template engine by SensioLabs, is used inside template files in lieu of PHP</li>
-							<li>Classy, a new base theme, is introduced</li>
-							<li>template.php becomes the slightly better-named [theme-name].theme. Maybe we’ll finally get theme.php in Drupal 9?</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>What's new in Drupal 8?</h2>
-						<ul>
-							<li>Responsive design elements are included by default</li>
-							<li>Breakpoints can be set and used across modules and themes</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>What's new in Drupal 8?</h2>
-						<ul>
-							<li>Support for IE8 and below is dropped meaning the use of jQuery 2.0, HTML5, and CSS3 (including pseudo selectors) are now supported</li>
-							<li>CSS: far fewer IDs are used, default classes are no longer in core but are moved to Classy, CSS file structure now uses SMACSS and class names follow the BEM format</li>
-							<li>CSS and JS files are attached to pages differently</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>What's new in Drupal 8?</h2>
-						<p>For a more comprehensive list, visit Drupal's <a href="https://www.drupal.org/list-changes/published/drupal?keywords_description=&to_branch=&version=&created_op=%3E%3D&created%5Bvalue%5D=&created%5Bmin%5D=&created%5Bmax%5D=&impacts%5B%5D=3">change log.</a></p>
+						<img src="images/epic-fails-3-28.jpg" alt="epic fail" >
 					</section>
 				</section>
-				<!-- End 1A -->
 
-				<!-- 1B: Pros of changes -->
 				<section>
-					<section>
-						<h2>Why all the changes?</h2>
-						<h3>In summary...</h3>
-						<ol>
-							<li>So everyone can use Drupal</li>
-							<li>To make Drupal more secure, more flexible, more current, more organized, and more semantic</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Why all the changes?</h2>
-						<h3>Accessibility to non-Drupalers</h3>
-						<ul>
-							<li>Fewer Drupal-specific conventions and more popular, well-documented frameworks (such as Twig), meaning non-Drupalers can jump in much more quickly.</li>
-							<li>D8 themers don’t need to know PHP to whip up a theme.</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Why all the changes?</h2>
-						<h3>Security</h3>
-						<ul>
-							<li>Text is automatically escaped in Twig, meaning a lower chance of XSS attacks.</li>
-							<li>Template files are more secure since they no longer contain PHP code.</li>
-						</ul>
-
-						<pre><code>&lt;?php db_query('DROP TABLE {users}'); ?&gt;</code></pre>
-
-						<p><small>Scary example courtesy of Sander at <a href="http://d8.sqndr.com/">d8.sqndr.com.</a></small></p>
-					</section>
-
-					<section>
-						<h2>Why all the changes?</h2>
-						<h3>Look at all the pretty things we get to use now!!</h3>
-						<ul>
-							<li>HTML5</li>
-							<li>CSS3</li>
-							<li>Modern jQuery libraries</li>
-							<li>SMACSS</li>
-							<li>BEM</li>
-							<li>Responsive breakpoints</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Why all the changes?</h2>
-						<h3>...but seriously</h3>
-						<ul>
-							<li>Separation of logic from appearance, leading to more modular (reusable) code.</li>
-							<li>More semantic CSS class names means leaner CSS and a more readable DOM</li>
-							<li>A general trend towards more extendable, modular, well-organized, better-performing code</li>
-						</ul>
-					</section>
+					<h2>What <i>is</i> the workflow</h2>
+					<ul>
+						<li>Commit, commit, commit. Did you commit yet? </li>
+						<li>Push up to a personal private repository</li>
+						<li>Rewind history, rewrite, and polish</li>
+						<li>Share away!</li>
+						<li>Rinse, repeat as needed</li>
+					</ul>
 				</section>
-				<!-- End 1B -->
+
+
+				<section>
+					<h2>What does the workflow address?</h2>
+					<ul>
+						<li>Perfectionists/humans have a
+							<a href="http://thoughtcatalog.com/peter-benvenuto/2014/03/7-reasons-why-youre-afraid-of-commitment-and-what-to-do-about-it/" >fear of commitment</a>.
+							<ul>
+								<li>You feel vulnerable</li>
+								<li>The pursuit of “something better”</li>
+								<li>Unrealistic expectations</li>
+								<li>Feeling “trapped”</li>
+							</ul>
+						</li>
+						<li>
+							You're backing up frequently!
+						</li>
+						<li>
+							Preserve your <i>possibly</i> sloppy
+							yet efficient development workflow and share only
+							the best!
+						</li>
+						<li>
+							You give yourself a code review!
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>How the eff do we do this?</h2>
+					<h3>Let's look</h3>
+					<ol>
+						<li>git commit, git add, git commit, git add, git commit</li>
+						<li>git push backup-private-repository WIP-branch</li>
+						<li>git reset [commit-before-wip-commits] --hard</li>
+						<li>git checkout [WIP-branch-finished .</li>
+						<li>git add -p </li>
+						<li>git push shared-repository [polished-branch] </li>
+
+					</ol>
+				</section>
+
+				<section>
+					<h2>Step 1</h2>
+					<h3>Commit the good, the bad, the ugly</h3>
+
+
+					<pre>
+						<code>
+							git log 4851400 tip of polished code
+							git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
+							remotes/chrisarusso/user_revision_sqlsan
+							4851400 Final before touching up
+							git show 4851400^^^^^^^^ = example
+						</code>
+					</pre>
+
+				</section>
+
+				<section>
+					<h2>Why all the changes?</h2>
+					<h3>Look at all the pretty things we get to use now!!</h3>
+					<ul>
+						<li>HTML5</li>
+						<li>CSS3</li>
+						<li>Modern jQuery libraries</li>
+						<li>SMACSS</li>
+						<li>BEM</li>
+						<li>Responsive breakpoints</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Why all the changes?</h2>
+					<h3>...but seriously</h3>
+					<ul>
+						<li>Separation of logic from appearance, leading to more modular (reusable) code.</li>
+						<li>More semantic CSS class names means leaner CSS and a more readable DOM</li>
+						<li>A general trend towards more extendable, modular, well-organized, better-performing code</li>
+					</ul>
+				</section>
 
 				<!-- 1C: Cons of changes -->
 				<section>
