@@ -160,7 +160,7 @@
 
 
 					<pre>
-						<code>
+						<code data-trim contenteditable>
 							git log 4851400 tip of polished code
 							git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
 							remotes/chrisarusso/user_revision_sqlsan
@@ -176,7 +176,7 @@
 					<h2>Step 2</h2>
 					<h3>Find you a nice, private repository</h3>
 					<h5>...that nobody knows about</h5>
-					<pre><code data-trim>
+					<pre><code data-trim contenteditable>
 git remote -v
 github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (fetch)
 github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (push)
@@ -285,31 +285,6 @@ bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentat
 				</section>
 
 
-
-
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-
 				<section>
 					<h2>Speaker View</h2>
 					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
@@ -319,8 +294,6 @@ function linkify( selector ) {
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 					</aside>
 				</section>
-
-
 
 			</div>
 
