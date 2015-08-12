@@ -104,13 +104,13 @@
 
 				<section>
 					<h2>What <i>is</i> the workflow</h2>
-					<ul>
+					<ol>
 						<li>Commit, commit, commit. Did you commit yet? </li>
 						<li>Push up to a personal private repository</li>
 						<li>Rewind history, rewrite, and polish</li>
 						<li>Share away!</li>
 						<li>Rinse, repeat as needed</li>
-					</ul>
+					</ol>
 				</section>
 
 
@@ -171,192 +171,92 @@
 
 				</section>
 
+
 				<section>
-					<h2>Why all the changes?</h2>
-					<h3>Look at all the pretty things we get to use now!!</h3>
-					<ul>
-						<li>HTML5</li>
-						<li>CSS3</li>
-						<li>Modern jQuery libraries</li>
-						<li>SMACSS</li>
-						<li>BEM</li>
-						<li>Responsive breakpoints</li>
-					</ul>
+					<h2>Step 2</h2>
+					<h3>Find you a nice, private repository</h3>
+					<h5>...that nobody knows about</h5>
+					<pre><code data-trim>
+git remote -v
+github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (fetch)
+github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (push)
+bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (fetch)
+bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (push)
+					</code></pre>
+					And push, push, push!
 				</section>
 
 				<section>
-					<h2>Why all the changes?</h2>
-					<h3>...but seriously</h3>
-					<ul>
-						<li>Separation of logic from appearance, leading to more modular (reusable) code.</li>
-						<li>More semantic CSS class names means leaner CSS and a more readable DOM</li>
-						<li>A general trend towards more extendable, modular, well-organized, better-performing code</li>
-					</ul>
-				</section>
-
-				<!-- 1C: Cons of changes -->
-				<section>
 					<section>
-						<h2>Any disadvantages?</h2>
-						<ol>
-							<li>Many contributed themes and modules don't having their 8.x branches ready.</li>
-						</ol>
-						<p>An intimidating note on the 8.x branch of a popular contrib theme:</p>
-						<blockquote>This is a development branch. Please note that this branch is probably severely broken. It is strongly recommended to wait before using this branch or even creating issues regarding it.</blockquote>
-					</section>
-
-					<section>
-						<h2>Any disadvantages?</h2>
-						<ol start=2>
-							<li>Lack of documentation online</li>
-						</ol>
-						<p>Of the documentation that DOES exist, much of it is:</p>
+						<h2>Step 2.5</h2>
+						<h2>Finish up and polish code in last commit</h2>
 						<ul>
-							<li>Outdated, and marked as such.</li>
-							<li>Outdated, and NOT marked as such.</li>
+							<li>Add helpful comments</li>
+							<li>Make sure DCS isn't after you (Drupal Coding Standards)</li>
+							<li>Test</li>
+							<li>Push up to your private repository</li>
+							<li>NB: Mark the tree</li>
 						</ul>
 					</section>
-
+					<section>
+						<img src="images/dog-marking-3.jpg" alt="dog marking tree" />
+						<img src="images/mark-four.jpg" alt="dog marking tree" />
+					</section>
 				</section>
-				<!-- End 1C -->
-
-				<!-- END SECTION 1 -->
-
-				<!-- SECTION 2: BUILDING A CUSTOM THEME -->
 				<section>
-					<h2>Let's build this thing</h2>
-				</section>
+					<h2>Step 3</h2>
+					<h3>Rollback</h3>
+					<ul>
+						<li>
+							Rollback code to before you made any of your updates.
+							This is likely where master is, or at least was when you
+							left off.
+						</li>
 
-				<section>
-					<h2>Create a theme folder</h2>
-					<img width="660" height="255" src="images/theme-folder-location.png" alt="Screenshot of theme folder location">
-					<p>Drupal core now resides in its own folder. Contributed and custom modules and themes are in the <code>modules</code> and <code>themes</code> folders, respectively.</p>
-					<p>My custom theme folder is called <code>mappy</code>.</p>
-					<p>Don't forget to create a <code>custom</code> folder for your custom theme!</p>
-				</section>
-
-				<section>
-					<h2>Create a .info.yml file</h2>
-					<pre><code data-trim>
-# mappy.info.yml
-name: Mappy
-type: theme
-description: 'D8 Theme for a basic leaflet site.'
-core: 8.x
-base theme: classy
-libraries:
- - mappy/global-styling
- - mappy/leaflet
-regions:
-  navbar: 'Top Navigation Bar'
-  content: Content # required!
-  sidebar: 'Sidebar'
-  footer: 'Footer'
-					</code></pre>
-					<p class="centered">[theme-name].info becomes [theme-name].info.yml</p>
+					</ul>
 				</section>
 
 				<section>
-					<h2>Dot info dot what?</h2>
-					<p>YAML is a data serialization language that contains key-value pairs.</p>
-					<p>Check out <a href="http://symfony.com/doc/current/components/yaml/yaml_format.html">Symfony's excellent writeup</a> 
-						on YAML syntax before getting started.</p>
-					<p>And mind your whitespace!</p>
+					<h2>Step 3.5</h2>
+					<h3>Checkout polished code to working tree</h3>
+					<ul>
+						<li>
+							Now we'll bring back all the code we just worked on,
+							but not the commits with them.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Step 3.848</h2>
+					<h3>Reset staged files</h3>
+					<ul>
+						<li>
+							We'll reset everything <em>not with --hard</em> so that
+							nothing is staged
+						</li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>Create a .into.yml file</h2>
-					<pre><code data-trim>
-# mappy.info.yml
-name: Mappy
-type: theme
-description: 'D8 Theme for a basic leaflet site.'
-core: 8.x
-regions:
-  navbar: 'Top Navigation Bar'
-  content: Content # required!
-  sidebar: 'Sidebar'
-  footer: 'Footer'
-					</code></pre>
-					<p class="centered">This looks familiar, right?</p>
+					<h2>Step 4</h2>
+					<h3>Make all new commits</h3>
+					<ul>
+						<li>use git add -p</li>
+						<li>break code into logical features/sections</li>
+						<li>Make <a href="http://chris.beams.io/posts/git-commit/">nice commit messages</a></li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>Classy, a new base theme</h2>
-					<pre><code data-trim>
-# mappy.info.yml
-base theme: classy
-					</code></pre>
-					<p>In D8, default classes are stripped from Drupal core and moved into the base theme Classy.</p>
-					<p>To avoid these default classes, simply don't base your theme on Classy.</p>
-					<p>But we want them because BEM is awesome! Check out <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">this awesome introduction.</a>
+					<h2>Step 4.5</h2>
+					<h3>Verify trees are <em>exactly</em> the same</h3>
+					<p><small>... complete with #chichi tinkle ...</small></p>
 				</section>
 
 				<section>
-					<h2>Libraries</h2>
-					<pre><code data-trim>
-# mappy.info.yml
-libraries:
- - mappy/global-styling
- - mappy/leaflet
-					</code></pre>
-					<p>In D8, assets can be added in a few different ways: globally, per-template, per-page, and more.</p>
-					<p>Since this is a small site and we need our libraries on every page, we're adding them globally.</p>
-				</section>
-
-				<section>
-					<h2>Create a .libraries.yml file</h2>
-					<pre><code data-trim>
-# mappy.libraries.yml
-global-styling:
-  css:
-    theme:
-      css/styles.css: {}
-
-leaflet:
-  css:
-    theme:
-      css/leaflet.css: {}
-  js:
-    js/leaflet.js: {}
-    js/map.js: {}
-  dependencies:
-    - core/jquery
-					</code></pre>
-					<p>Note that jQuery is listed as a dependency of the Leaflet library. Since jQuery is no longer loaded automatically on every page, it must be explicitly required.</p>
-				</section>
-
-				<section>
-					<h2>Adding assets to your site</h2>
-					<p>No matter how you include your assets, they must be defined in your <code>.libraries.yml</code> file.</p>
-					<p>You probably won't add libraries globally very often. Visit <a href="https://www.drupal.org/developing/api/8/assets">drupal.org</a> for more information on methods for adding assets.</p>
-				</section>
-
-
-				<section>
-					<h2>Create a .breakpoints.yml file</h2>
-					<pre><code data-trim>
-# mappy.breakpoints.yml
-mappy.mobile:
-  label: mobile
-  mediaQuery: '(min-width: 0px)'
-  weight: 2
-  multipliers:
-    - 1x
-mappy.narrow:
-  label: narrow
-  mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
-  weight: 1
-  multipliers:
-    - 1x
-mappy.wide:
-  label: wide
-  mediaQuery: 'all and (min-width: 851px)'
-  weight: 0
-  multipliers:
-    - 1x
-					</code></pre>
-					<p>Ours is <strike>stolen</strike> adapted from the Bartik theme.</p>
+					<h2>Step 5</h2>
+					<h3>Push to shared repository</h3>
+					<h4>Pat yourself on the back.</h4>
 				</section>
 
 				<section>
