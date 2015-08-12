@@ -33,6 +33,7 @@ module.exports = function(grunt) {
 			core: {
 				files: {
 					'css/reveal.css': 'css/reveal.scss',
+					'css/theme/savasian.css': 'css/theme/source/savasian.scss',
 				}
 			},
 			themes: {
