@@ -54,7 +54,7 @@
 						<li>Brief discussion of what git is</li>
 						<li>Discuss the why of the proposed workflow</li>
 						<li>Look at the theory</li>
-						<li>Do the workflow live</li>
+						<li>Eff it, <a href="https://www.youtube.com/watch?v=Qy-Y3HJNU_s">we'll do it live</a>, step by step</li>
 						<li>Q&A</li>
 					</ul>
 				</section>
@@ -64,7 +64,7 @@
 					<h6>It's <i>best</i> if you already...</h6>
 					<li>use git for your development</li>
 					<li>know the <code>git add</code>, commit, push, and pull commands</li>
-					<li>know that I'm sassy</li>
+					<li>take me, at most, 82.5% seriously</li>
 				</section>
 
 				<section>
@@ -103,18 +103,6 @@
 				</section>
 
 				<section>
-					<h2>What <i>is</i> the workflow</h2>
-					<ol>
-						<li>Commit, commit, commit. Did you commit yet? </li>
-						<li>Push up to a personal private repository</li>
-						<li>Rewind history, rewrite, and polish</li>
-						<li>Share away!</li>
-						<li>Rinse, repeat as needed</li>
-					</ol>
-				</section>
-
-
-				<section>
 					<section>
 						<h3>What does the workflow address?</h3>
 						<ul>
@@ -144,13 +132,24 @@
 <ul>
 						<li>
 							Lack of <a href="https://en.wikiquote.org/wiki/Socrates#/media/File:Socrates.jpg">self-reflection</a>.
-							You give yourself a code review!
 							<br /><img src="images/Socrates.jpg" alt="Socrate" />
+							<br />You give yourself a code review!
 
 						</li>
 					</ul>
-				</section>
 					</section>
+				</section>
+
+				<section>
+					<h2>Stop talking already!!! What <i>is</i> the workflow</h2>
+					<ol>
+						<li>Commit, commit, commit. Did you commit yet? </li>
+						<li>Push up to a personal private repository</li>
+						<li>Rewind history, rewrite, and polish</li>
+						<li>Share away!</li>
+						<li>Rinse, repeat as needed</li>
+					</ol>
+				</section>
 
 				<section>
 					<h2>How the eff do we do this?</h2>
@@ -159,7 +158,7 @@
 						<li>git commit, git add, git commit, git add, git commit</li>
 						<li>git push backup-private-repository WIP-branch</li>
 						<li>git reset [commit-before-wip-commits] --hard</li>
-						<li>git checkout [WIP-branch-finished .</li>
+						<li>git checkout [WIP-branch-finished] .</li>
 						<li>git add -p </li>
 						<li>git push shared-repository [polished-branch] </li>
 
@@ -170,14 +169,13 @@
 					<h2>Step 1</h2>
 					<h3>Commit the good, the bad, the ugly</h3>
 
-
 					<pre>
 						<code data-trim contenteditable>
-							git log 4851400 tip of polished code
-							git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
-							remotes/chrisarusso/user_revision_sqlsan
-							4851400 Final before touching up
-							git show 4851400^^^^^^^^ = example
+git log 4851400 tip of polished code
+git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
+remotes/chrisarusso/user_revision_sqlsan
+4851400 Final before touching up
+git show 4851400^^^^^^^^ = example
 						</code>
 					</pre>
 
