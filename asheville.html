@@ -144,7 +144,7 @@
 					<h2>Stop talking already!!! What <i>is</i> the workflow</h2>
 					<ol>
 						<li>Commit, commit, commit. Did you commit yet? </li>
-						<li>Push up to a personal private repository</li>
+						<li>Push up to a personal, private repository</li>
 						<li>Rewind history, rewrite, and polish</li>
 						<li>Share away!</li>
 						<li>Rinse, repeat as needed</li>
@@ -153,7 +153,7 @@
 
 				<section>
 					<h2>How the eff do we do this?</h2>
-					<h3>Let's look</h3>
+					<h4>Let's have a gander</h4>
 					<ol>
 						<li>git commit, git add, git commit, git add, git commit</li>
 						<li>git push backup-private-repository WIP-branch</li>
@@ -171,11 +171,55 @@
 
 					<pre>
 						<code data-trim contenteditable>
-git log 4851400 tip of polished code
-git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
-remotes/chrisarusso/user_revision_sqlsan
-4851400 Final before touching up
-git show 4851400^^^^^^^^ = example
+git show 96edd7c2a
++}
++
++/**
++ * Function to queue up text and email reminders from cron runs.
++ */
++function compost_customizations_queue_forgotten_bucket_emails() {
++
++  // Retrieve all members who have been marked as a forgotten
++  // bucket but have not yet been notified
++  $query = new EntityFieldQuery();
++
++  $query->entityCondition('entity_type', 'user')
++    ->fieldCondition('field_active', 'value', 1);
++    //->fieldCondition('field_reminded_about_forgotten_b', 'value', 0);
++
++  $result = $query->execute();
++  $user_uids = array_keys($result['user']);
++  $users = entity_load('user', $user_uids);
++
++  foreach ($users as $user) {
++    if (empty($user->field_forgotten_bucket)) {
++      continue;
++    }
++
++    foreach ($user->field_forgotten_bucket[LANGUAGE_NONE] as $forgotten_bucket) {
++      $collection_id = $forgotten_bucket['value'];
++      $forgotten_bucket_entity = entity_load('field_collection_item', array($collection_id));
++      $reminded = $forgotten_bucket_entity[$collection_id]->field_reminded_about_forgotten_b[LANGUAGE_NONE][0]['value'];
++      // If they weren't reminded, let's queue them up, and set them to reminded
++      if (!$reminded) {
++        // @todo: Queue email
++        $user_wrapper = entity_metadata_wrapper('user', $user);
++        $raw_collection = $user_wrapper->field_forgotten_bucket->value();
++        //$raw_collection[0]->field_reminded_about_forgotten_b->set(1);
++        $collection = entity_metadata_wrapper('field_collection_item', $raw_collection[0]);
++        $collection->field_reminded_about_forgotten_b->set(1);
++        // @todo: remove after finishing
++        if ($collection_id == 6) {
++          // Set to reminded
++          $collection->save();
++        }
++
++
++        $been = 'reminded?';
++      }
++    }
++  }
+}
 						</code>
 					</pre>
 
@@ -223,6 +267,12 @@ bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentat
 							left off.
 						</li>
 
+						<pre>
+							<code data-trim >
+git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
+remotes/chrisarusso/user_revision_sqlsan
+							</code>
+						</pre>
 					</ul>
 				</section>
 
