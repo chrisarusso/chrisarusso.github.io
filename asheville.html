@@ -199,7 +199,7 @@ git show 96edd7c2a
 +    foreach ($user->field_forgotten_bucket[LANGUAGE_NONE] as $forgotten_bucket) {
 +      $collection_id = $forgotten_bucket['value'];
 +      $forgotten_bucket_entity = entity_load('field_collection_item', array($collection_id));
-+      $reminded = $forgotten_bucket_entity[$collection_id]->field_reminded_about_forgotten_b[LANGUAGE_NONE][0]['value'];
++      $reminded = $forgotten_bucket_entity[$collection_id]->field_reminded_about_forgotten_b...;
 +      // If they weren't reminded, let's queue them up, and set them to reminded
 +      if (!$reminded) {
 +        // @todo: Queue email
@@ -232,10 +232,11 @@ git show 96edd7c2a
 					<h5>...that nobody knows about</h5>
 					<pre><code data-trim contenteditable>
 git remote -v
-github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (fetch)
-github-shared	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (push)
-bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (fetch)
-bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentation.git (push)
+backup	git@bitbucket.org:savaslabs/tilthy-rich-compost.git (fetch)
+backup	git@bitbucket.org:savaslabs/tilthy-rich-compost.git (push)
+upstream	git@github.com:chrisarusso/Tilthy-Rich-Compost-Website.git (fetch)
+upstream	git@github.com:chrisarusso/Tilthy-Rich-Compost-Website.git (push)
+
 					</code></pre>
 					And push, push, push!
 				</section>
@@ -246,7 +247,7 @@ bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentat
 						<h2>Finish up and polish code in last commit</h2>
 						<ul>
 							<li>Add helpful comments</li>
-							<li>Make sure DCS isn't after you (Drupal Coding Standards)</li>
+							<li>Make sure <a href="http://www.state.tn.us/youth/">DCS</a> isn't after you (<a href="https://www.drupal.org/coding-standards">Drupal Coding Standards</a>)</li>
 							<li>Test</li>
 							<li>Push up to your private repository</li>
 							<li>NB: Mark the tree</li>
@@ -254,8 +255,78 @@ bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentat
 					</section>
 					<section>
 						<img src="images/dog-marking-3.jpg" alt="dog marking tree" />
-						<img src="images/mark-four.jpg" alt="dog marking tree" />
 					</section>
+					<section>
+						<img src="images/mark-four.jpg" alt="dog marking tree" style="max-width:60%" />
+						<br />
+						<small>Disclaimer: upcoming deeper dive</small>
+					</section>
+					<section>
+						<h3>Understanding the commit object</h3>
+						<pre>
+							<code class="" >
+CAR-computer:trc chris$ git cat-file -p b464b45
+tree f2f767cefda3d283f0fb3b68fd4f377e554b7f57
+parent a313c886ac6f2f85d97679faae12dc78900d34c9
+author Chris Russo <chris.andrews.russo@gmail.com> 1436206446 -0400
+committer Chris Russo <chris.andrews.russo@gmail.com> 1436206446 -0400
+
+Final commit after testing, clean up time!</code>
+						</pre>
+						Note: Tree = <code>f2f767c</code>...
+					</section>
+
+
+					<section>
+						<h3>Understanding the tree object</h3>
+						<pre>
+							<code class="" >
+CAR-computer:trc chris$ git cat-file -p f2f767
+040000 tree 58c541257a7944223814aa69b13d0a73204995e9	assets
+040000 tree 6bbcedb9daddca2da40e994137a9922630a88fa7	civicrm
+040000 tree 49a4db16751992f17eb998cd8464bf7b31534165	drupalroot
+040000 tree 421e8ebc4a7eed08583b24cc20298cf8cc8426fd	scripts</code>
+						</pre>
+						Note: This is the git project root
+					</section>
+
+					<section>
+						<h3>Understanding a tree object with blobs (files)</h3>
+						<pre>
+							<code class="" >
+CAR-computer:trc chris$ git cat-file -p 49a4db1
+100644 blob a1211d6396d2c011ea756410658b1c6b60b2078c	.gitignore
+100644 blob b7c9dc638c1072ab6fb97a00940016074df275d5	.htaccess
+100644 blob 5ba3523ade1dc77ae3ffe1de50795cb4b9193db6	CHANGELOG.txt
+100644 blob dc8a855fbbecf09f939dba807fa5ebc1d8a26a05	COPYRIGHT.txt
+100644 blob 95a873433350f02a4621124d054e531c83df984b	INSTALL.mysql.txt
+100644 blob 8fe80433bd67d4659831ceaa729c534c70544c16	INSTALL.pgsql.txt
+100644 blob 8e57d60cc0d793862706f41dcfdcef5252fdb1e8	INSTALL.sqlite.txt
+100644 blob 6f02c05ae6dfd799a8a0566fccb54963ca9a595a	INSTALL.txt
+100644 blob d159169d1050894d3ea3b98e1c965c4058208fe1	LICENSE.txt
+100644 blob f5cf6f893abdb884ae8b95536c86224bc196400e	MAINTAINERS.txt
+100644 blob 60d3da592e9ca5e77a4d40f1cc87e9f326bcf1b8	README.txt
+100644 blob e870ff0f0ec39cb94b775e7689cbfec7a0a43afa	UPGRADE.txt
+100644 blob 3ea2b20ace5146a5983dcebe6178fd5a53f00bd3	authorize.php
+100644 blob c6ce5317e88fda48a6543ebcbcc09ec93e9d99ac	cron.php
+040000 tree 64ae554e8a2d34a1065f19781155defae2321eed	includes
+100644 blob 8b831997815f521b150c5b0c27038f6b04e3cf40	index.php
+100644 blob 685d3b4ee3030809ff568b72a499b4170151f601	install.php
+040000 tree 6136fb8262f157e233dff279f8038b4d3c63299e	misc
+040000 tree fdff3556aa49c077b69552ab3dc70ce9c6addbbb	modules
+040000 tree 834a5a0e372a2835965dfbba2602118575b2780c	profiles
+100644 blob ff9e28687d65f7d3206ac7aef1e1a72d620d972e	robots.txt
+040000 tree 2f73b7f8d323b2502d80b92940a1210c8a8568f1	scripts
+040000 tree 0bf42bdca922725c1b8aca3824f121e2fb68c970	sites
+040000 tree 4d21cf083db371f9078bdc1bd72876ab16428f50	themes
+100644 blob d79270305a717064b9c2b8a324d4ecd0526a89ae	update.php
+100644 blob 09983d92542ed094f9bd061af6c07adfdd745b91	web.config</code>
+						</pre>
+						Note: These are typical Drupal files in the drupal docroot
+					</section>
+
+
+
 				</section>
 				<section>
 					<h2>Step 3</h2>
@@ -269,8 +340,28 @@ bitbucket-private	git@github.com:chrisarusso/Drupalcamp-Asheville-2015-Presentat
 
 						<pre>
 							<code data-trim >
-git branch -av --contains a7caec284c8fe5d52b3354486de956124fdecfc9
-remotes/chrisarusso/user_revision_sqlsan
+CAR-computer:drupalroot chris$ git branch -av --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386
+* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
+remotes/backup/forgotten-buckets-feature b464b45 Final commit after testing, clean up time!
+
+
+CAR-computer:drupalroot chris$ git branch -av --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^
+* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
+remotes/backup/forgotten-buckets-feature b464b45 Final commit after testing, clean up time!
+
+
+CAR-computer:drupalroot chris$ git branch -av --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^^
+* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
+remotes/backup/forgotten-buckets-feature b464b45 Final commit after testing, clean up time!
+
+
+CAR-computer:drupalroot chris$ git branch -av --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^^^
+* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
+master                                   bb3a004 [behind 2] Add blog node template
+remotes/backup/forgotten-buckets-feature b464b45 Final commit after testing, clean up time!
+remotes/backup/master                    c70a925 Stuck... why is the form redirecting
+remotes/upstream/HEAD                    -> upstream/master
+remotes/upstream/master                  808f61e Hide extra links for blog content type
 							</code>
 						</pre>
 					</ul>
