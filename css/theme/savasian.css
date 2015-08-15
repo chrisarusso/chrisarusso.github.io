@@ -47,7 +47,7 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.77em; }
+  font-size: 3em; }
 
 .reveal h2 {
   font-size: 2.11em; }
@@ -275,15 +275,49 @@ body {
 body {
   background: #14133b url("../../images/logo.png") no-repeat fixed 2% 2%; }
 
-.reveal h1 {
+.reveal h1, .reveal h3 {
   color: #f6433e; }
 .reveal p {
   text-align: left; }
-.reveal .centered {
-  text-align: center; }
+.reveal code {
+  background-color: #3F3F3F;
+  border: 1px solid #070714;
+  border-radius: 5px;
+  color: #DCDCDC;
+  display: inline-block;
+  font-size: 0.8em;
+  margin: -1px 0 0;
+  padding: 0 5px; }
 .reveal blockquote {
   border-radius: 0 10px 10px 0;
   color: #14133b;
   padding: 15px;
   background: rgba(244, 209, 166, 0.8);
   text-align: left; }
+.reveal li {
+  margin-bottom: 15px; }
+.reveal .centered {
+  text-align: center; }
+.reveal .caption {
+  margin-top: -15px; }
+.reveal .no-border {
+  background-color: #14133b;
+  border: none; }
+.reveal .fuschia {
+  color: #9e023b; }
+.reveal .compact-list li {
+  margin-bottom: 5px; }
+.reveal .its-happening {
+  margin-left: 50px; }
+.reveal .savas {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 40px;
+  vertical-align: top; }
+.reveal .durham {
+  display: inline-block;
+  margin-right: 20px; }
+  .reveal .durham p {
+    font-size: 0.8em;
+    margin-top: -20px;
+    text-align: center; }
