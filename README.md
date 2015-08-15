@@ -1,4 +1,4 @@
-# Creating a Custom Theme in Drupal 8
+# Personal git workflow, for everyone!
 This is a presentation made with reveal.js.
 
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.svg?branch=master)](https://travis-ci.org/hakimel/reveal.js)
