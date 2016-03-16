@@ -1,21 +1,17 @@
 /**
- * Solarized Dark theme for reveal.js.
- * Author: Achim Staebler
+ * Savasian theme for reveal.js.
  */
-
 
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
 
-
-
 // Include theme-specific fonts
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed);
 
 /**
- * Solarized colors by Ethan Schoonover
+ * Solarized colors by Ethan Schoonover, adapted to match Savas color scheme.
  */
 html * {
   color-profile: sRGB;
@@ -23,22 +19,22 @@ html * {
 }
 
 // Solarized colors
-$base03:    #002b36;
-$base02:    #073642;
-$base01:    #586e75;
-$base00:    #657b83;
-$base0:     #839496;
-$base1:     #93a1a1;
-$base2:     #eee8d5;
-$base3:     #fdf6e3;
-$yellow:    #b58900;
-$orange:    #cb4b16;
-$red:       #dc322f;
+$base03:    #002b36; // darkest blue
+$base02:    #073642; // dark blue
+$base01:    #586e75; // darkest gray
+$base00:    #657b83; // dark gray
+$base0:     #839496; // medium gray
+$base1:     #93a1a1; // medium light gray
+$base2:     #eee8d5; // cream
+$base3:     #fdf6e3; // white
+$yellow:    #f2a324;
+$orange:    #f6433e;
+$red:       #9e023b;
 $magenta:   #d33682;
-$violet:    #6c71c4;
-$blue:      #268bd2;
-$cyan:      #2aa198;
-$green:     #859900;
+$violet:    #501888;
+$blue:      #14133b; // Inline syntax highlighting.
+$cyan:      #0a5365;
+$green:     #055c2b;
 
 // Theme colors
 $dark-blue: #14133b;
@@ -52,6 +48,7 @@ $white: #fff;
 // Override theme settings (see ../template/settings.scss)
 $mainColor: $beige;
 $headingColor: lighten($fuschia, 10%);
+$secondaryHeadingColor: $orange;
 $headingTextShadow: none;
 $backgroundColor: $dark-blue;
 $linkColor: $orange;
@@ -77,64 +74,68 @@ body {
 
 .reveal {
 
-  h1, h3 { color: $orange; }
+  // General text styles -------------------------------------------------------
+  h1, h3 { color: $secondaryHeadingColor; }
 
   p { text-align: left; }
 
-  code {
-    background-color: #3F3F3F;
-    border: 1px solid darken($dark-blue, 10%);
-    border-radius: 5px; 
-    color: #DCDCDC;
-    display: inline-block;
-    font-size: .8em;
-    margin: -1px 0 0;
-    padding: 0 5px;
-  }
+  li { margin-bottom: 15px; }
+
+  .compact-list li { margin-bottom: 5px; }
+
+  .centered { text-align: center; }
+
+  .caption { margin-top: -15px; }
+
+  .heading-color { color: $headingColor; }
 
   blockquote {
     border-radius: 0 10px 10px 0;
     color: $dark-blue;
     padding: 15px;
     background: rgba(244, 209, 166, .8);
-    text-align: left; 
+    text-align: left;
   }
 
-  li { margin-bottom: 15px; }
+  // Inline code ---------------------------------------------------------------
+  p code {
+    background-color: $gainsboro;
+    border: 1px solid darken($dark-blue, 10%);
+    border-radius: 5px;
+    color: $blue;
+    display: inline-block;
+    font-size: .8em;
+    margin: -1px 0 0;
+    padding: 0 5px;
+  }
 
-  .centered { text-align: center; }
-
-  .caption { margin-top: -15px; }
-
+  // Images --------------------------------------------------------------------
   .no-border {
     background-color: $backgroundColor;
     border: none;
   }
 
-  .fuschia { color: $fuschia; }
-
-  .compact-list li { margin-bottom: 5px; }
-
-  .its-happening { margin-left: 50px; }
-
-  .savas {
+  .img-right {
     display: inline-block;
     margin-left: 20px;
-    margin-top: 40px;
-    vertical-align: top;
   }
 
-  .durham {
+  .img-left {
     display: inline-block;
     margin-right: 20px;
+  }
 
-    p {
+  // Per-slide styles ----------------------------------------------------------
+  .intro-slide {
+    .img-right {
+      margin-top: 40px;
+      vertical-align: top;
+    }
+
+    .img-left p {
       font-size: .8em;
       margin-top: -20px;
       text-align: center;
     }
   }
 }
-
-
-

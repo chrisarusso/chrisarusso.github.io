@@ -1,734 +1,255 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-
-		<title>Personal git workflow... for everyone!</title>
-
-		<meta name="description" content="Personal git workflow... for everyone!">
-		<meta name="author" content="Chris Ruso">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/savasian.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Personal git workflow... for everyone!</h1>
-					<h3>for better, collaborative development</h3>
-					<p class="centered">
-
-						<small>Presentation by Chris Russo of <a href="http://savaslabs.com/">Savas Labs</a></small>
-					</p>
-					<aside class="notes">
-						Introduce yourself!
-					</aside>
-				</section>
-
-				<section>
-					<h2>What we'll cover</h2>
-					<ul>
-						<li>Brief discussion of what git is</li>
-						<li>Discuss the why of the proposed workflow</li>
-						<li>Look at the theory</li>
-						<li>Eff it, <a href="https://www.youtube.com/watch?v=Qy-Y3HJNU_s">we'll do it live</a>, step by step</li>
-						<li>Q&A</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Prerequesites</h3>
-					<h6>It's <i>best</i> if you already...</h6>
-					<ul>
-						<li>use git for your development</li>
-						<li>know the git add, commit, push, and pull commands</li>
-						<li>take me, at most, 82.5% seriously</li>
-					</ul>
-					<aside class="notes">
-						Ask how many people use git in every-day development?
-					</aside>
-				</section>
-
-				<section>
-					<h2>What is git?</h2>
-					<ul>
-						<li><a href="https://git-scm.com/">git</a> is a <em>distributed</em> "SCMS" or "version control" software tool optimized for
-							<ul>
-								<li>team collaboration</li>
-								<li>documentation</li>
-								<li>deployment</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>git strengths vs. other SCMS tools</h2>
-					<ul>
-						<li>Staging area</li>
-						<li>Data integrity</li>
-						<li>Distributed</li>
-					</ul>
-				</section>
-
-				<section>
-					<section>
-					<h2>What are we trying to accomplish?</h2>
-					<h4>The idea of the proposed workflow ensures that you are...</h4>
-					<ul>
-						<li>backing up code frequently</li>
-						<li>sharing the best of your code with your peers regardless of what your journey looked like</li>
-					</ul>
-						<aside class="notes">
-							Sometimes it's not pretty.
-						</aside>
-					</section>
-					<section>
-						<img src="images/epic-fails-3-28.jpg" alt="epic fail" >
-						<br />
-						<a href="#/10">Worse yet</a>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h3>What does the workflow address?</h3>
-						<ul>
-							<li>
-								<a href="http://thoughtcatalog.com/peter-benvenuto/2014/03/7-reasons-why-youre-afraid-of-commitment-and-what-to-do-about-it/" >Fear of Commitment</a>.
-								Developers/perfectionists/humans have it.
-								<ul>
-									<li>You feel vulnerable</li>
-									<li>The pursuit of “something better”</li>
-									<li>Unrealistic expectations</li>
-									<li>Feeling “trapped”</li>
-								</ul>
-							</li>
-							<li>
-								Inconsistent backups due to #FoC.
-							</li>
-							<li>
-								Inefficient development due to #FoC.
-								Preserve your <i>possibly</i> sloppy
-								yet efficient development workflow and share only
-								the best!
-							</li>
-						</ul>
-					</section>
-					<section>
-						<h3>What does the workflow address?</h3>
-
-								Lack of <a href="https://en.wikiquote.org/wiki/Socrates#/media/File:Socrates.jpg">self-reflection</a>.
-								<br /><img src="images/Socrates.jpg" alt="Socrate" />
-								<br />You give yourself a code review!
-<aside class="notes">Socrates - The unexamined life is not worth living.</aside>
-					</section>
-				</section>
-
-				<section>
-					<h2>Stop talking already!!! What <i>is</i> the workflow?</h2>
-					<ol>
-						<li>Commit, commit, commit. Did you commit yet? </li>
-						<li>Push up to a personal, private repository</li>
-						<li>Polish, rewind history, and rewrite</li>
-						<li>Share away!</li>
-						<li>Rinse, repeat as needed</li>
-					</ol>
-				</section>
-
-				<section>
-					<h3>Specifics, though!</h3>
-					<ol>
-						<li>git commit, git add, git commit, git add, git commit</li>
-						<li>git push [backup-private-repository] [WIP-feature-branch]</li>
-						<li>git reset [commit-before-wip-commits] --hard</li>
-						<li>git checkout [WIP-feature-branch] .</li>
-						<li>git reset HEAD</li>
-						<li>git add -p </li>
-						<li>git commit -v </li>
-						<li>git cat-file -p</li>
-						<li>git push [shared-repository] [SHARED-BRANCH] </li>
-						<li>... </li>
-						<li>profit </li>
-					</ol>
-				</section>
-				<section>
-					<h2>I am angry! Is it really that simple?</h2>
-					Yes.
-				</section>
-
-				<section>
-					<h2>Step 1</h2>
-					<h3>Commit the good, the bad, the ugly</h3>
-
-					<pre>
-						<code data-trim contenteditable>
-git show forgotten-buckets-feature^^^^^^
-+}
-+
-+/**
-+ * Function to queue up text and email reminders from cron runs.
-+ */
-+function compost_customizations_queue_forgotten_bucket_emails() {
-+
-+  // Retrieve all members who have been marked as a forgotten
-+  // bucket but have not yet been notified
-+  $query = new EntityFieldQuery();
-+
-+  $query->entityCondition('entity_type', 'user')
-+    ->fieldCondition('field_active', 'value', 1);
-+    //->fieldCondition('field_reminded_about_forgotten_b', 'value', 0);
-+
-+  $result = $query->execute();
-+  $user_uids = array_keys($result['user']);
-+  $users = entity_load('user', $user_uids);
-+
-+  foreach ($users as $user) {
-+    if (empty($user->field_forgotten_bucket)) {
-+      continue;
-+    }
-+
-+    foreach ($user->field_forgotten_bucket[LANGUAGE_NONE] as $forgotten_bucket) {
-+      $collection_id = $forgotten_bucket['value'];
-+      $forgotten_bucket_entity = entity_load('field_collection_item', array($collection_id));
-+      $reminded = $forgotten_bucket_entity[$collection_id]->field_reminded_about_forgotten_b...;
-+      // If they weren't reminded, let's queue them up, and set them to reminded
-+      if (!$reminded) {
-+        // @todo: Queue email
-+        $user_wrapper = entity_metadata_wrapper('user', $user);
-+        $raw_collection = $user_wrapper->field_forgotten_bucket->value();
-+        //$raw_collection[0]->field_reminded_about_forgotten_b->set(1);
-+        $collection = entity_metadata_wrapper('field_collection_item', $raw_collection[0]);
-+        $collection->field_reminded_about_forgotten_b->set(1);
-+        // @todo: remove after finishing
-+        if ($collection_id == 6) {
-+          // Set to reminded
-+          $collection->save();
-+        }
-+
-+
-+        $been = 'reminded?';
-+      }
-+    }
-+  }
-}
-						</code>
-					</pre>
-					<small>
-						<a href="https://github.com/chrisarusso/Tilthy-Rich-Compost-Website/commit/96edd7c2a5b0baccc9fe3233c4482d0254a41386">TRC source commit on github.com</a>
-						<br /><a href="#/5/1">Go back</a> |
-						<a href="#/13/1">Go forward</a>
-					</small>
-					<aside class="notes">
-						Describe TRC and forgotten-buckets-feature
-					</aside>
-				</section>
-
-
-				<section>
-					<h2>Step 2</h2>
-					<h3>Find you a nice, private repository</h3>
-					<h5>...that nobody knows about</h5>
-					<pre><code data-trim contenteditable>
-git remote -v
-backup	git@bitbucket.org:savaslabs/tilthy-rich-compost.git (fetch)
-backup	git@bitbucket.org:savaslabs/tilthy-rich-compost.git (push)
-upstream	git@github.com:chrisarusso/Tilthy-Rich-Compost-Website.git (fetch)
-upstream	git@github.com:chrisarusso/Tilthy-Rich-Compost-Website.git (push)
-					</code></pre>
-					And push, push, push!
-				</section>
-				<section>
-					<h2>Step 2.pepa</h2>
-					<h1>Pa, push it real good!</h1>
-					<img src="images/41wzP2ZeCrL._SL500_SX355_.jpg" alt="salt & peppa">
-				</section>
-
-
-				<section>
-					<section>
-						<h2>Step 2.5</h2>
-						<h2>Finish up and polish code in last commit</h2>
-						<ul>
-							<li>Add helpful comments</li>
-							<li>Make sure <a href="http://www.state.tn.us/youth/">DCS</a> isn't after you (<a href="https://www.drupal.org/coding-standards">Drupal Coding Standards</a>)</li>
-							<li>Test</li>
-							<li>Push up to your private repository</li>
-						</ul>
-						<aside class="notes">
-							Push to backup
-						</aside>
-					</section>
-					<section>
-						<h2>Polished code</h2>
-						<pre><code>
-+}
-+
-+/**
-+ * Loop through and queue up reminder notifications to subscribers
-+ * who have not notified us of a collection that can be skipped
-+ */
-+function compost_customizations_queue_forgotten_bucket_emails() {
-+
-+  // Retrieve all members who have been marked as a forgotten
-+  // bucket but have not yet been notified
-+  $query = new EntityFieldQuery();
-+
-+  $query->entityCondition('entity_type', 'user')
-+    ->fieldCondition('field_active', 'value', 1)
-+    // We started this new system in 2015-July, so let's ignore any records
-+    // before we changed to field collections
-+    ->fieldCondition('field_forgotten_bucket', 'value', '0', '>=');
-+
-+  $result = $query->execute();
-+  $user_uids = array_keys($result['user']);
-+  $users = entity_load('user', $user_uids);
-+
-+  foreach ($users as $user) {
-+    if (empty($user->field_forgotten_bucket)) {
-+      continue;
-+    }
-+
-+    $user_wrapper = entity_metadata_wrapper('user', $user);
-+    $raw_collections = $user_wrapper->field_forgotten_bucket->value();
-+
-+    foreach ($raw_collections as $collection) {
-+      $forgotten_bucket = entity_metadata_wrapper('field_collection_item', $collection);
-+      $date = $forgotten_bucket->field_forgotten_bucket_date->value();
-+      $reminded = $forgotten_bucket->field_reminded_about_forgotten_b->value();
-+      $start_of_auto_reminders = strtotime('2015-Jul-01');
-+      if (!$reminded && $date >= $start_of_auto_reminders) {
-+        // Queue email
-+        $email_queue = DrupalQueue::get('forgotten_bucket_notifications');
-+        $data = array('user' => $user, 'date' => $date);
-+        $email_queue->createItem($data);
-+        // Set to reminded
-+        $forgotten_bucket->field_reminded_about_forgotten_b->set(1);
-+        $forgotten_bucket->save();
-+      }
-+    }
-+  }
-+}
-							+</code></pre>
-						<a href="#/10">Was this</a>
-					</section>
-					<section>
-						<h2>Step 2.668686</h2>
-						<h4>Mark the tree</h4>
-						<p class="fragment centered">
-							<img src="images/dog-marking-3.jpg" alt="dog marking tree" />
-						</p>
-					</section>
-					<section>
-						<img src="images/mark-four.jpg" alt="dog marking tree" style="max-width:60%" />
-						<br />
-						<small>Disclaimer: upcoming deeper dive</small>
-					</section>
-					<section>
-						<h3>Understanding the commit object</h3>
-						<pre>
-							<code class="" >
-CAR-computer:trc chris$ git cat-file -p b464b45
-tree f2f767cefda3d283f0fb3b68fd4f377e554b7f57
-parent a313c886ac6f2f85d97679faae12dc78900d34c9
-author Chris Russo &lt;chris.andrews.russo@gmail.com> 1436206446 -0400
-committer Chris Russo &lt;chris.andrews.russo@gmail.com> 1436206446 -0400
-
-Final commit after testing, clean up time!</code>
-						</pre>
-						Note: Tree = <code>f2f767c</code>...
-						<br />
-						<small><a href="#/18">Forward</a></small>
-						<aside class="notes">
-							<ul>
-								<li>Sha1 cryptographic hash function</li>
-								<li>Secure Hash Algorithm</li>
-								<li>Message digest (checksum) - 40 characters</li>
-						</aside>
-					</section>
-
-
-					<section>
-						<h3>Understanding the tree object</h3>
-						<pre>
-							<code class="" >
-CAR-computer:trc chris$ git cat-file -p f2f767
-040000 tree 58c541257a7944223814aa69b13d0a73204995e9	assets
-040000 tree 6bbcedb9daddca2da40e994137a9922630a88fa7	civicrm
-040000 tree 49a4db16751992f17eb998cd8464bf7b31534165	drupalroot
-040000 tree 421e8ebc4a7eed08583b24cc20298cf8cc8426fd	scripts</code>
-						</pre>
-						Note: This is the git project root
-					</section>
-
-					<section>
-						<h3>Understanding a tree object with blobs (files)</h3>
-						<pre>
-							<code class="" >
-CAR-computer:trc chris$ git cat-file -p 49a4db1
-100644 blob a1211d6396d2c011ea756410658b1c6b60b2078c	.gitignore
-100644 blob b7c9dc638c1072ab6fb97a00940016074df275d5	.htaccess
-100644 blob 5ba3523ade1dc77ae3ffe1de50795cb4b9193db6	CHANGELOG.txt
-100644 blob dc8a855fbbecf09f939dba807fa5ebc1d8a26a05	COPYRIGHT.txt
-100644 blob 95a873433350f02a4621124d054e531c83df984b	INSTALL.mysql.txt
-100644 blob 8fe80433bd67d4659831ceaa729c534c70544c16	INSTALL.pgsql.txt
-100644 blob 8e57d60cc0d793862706f41dcfdcef5252fdb1e8	INSTALL.sqlite.txt
-100644 blob 6f02c05ae6dfd799a8a0566fccb54963ca9a595a	INSTALL.txt
-100644 blob d159169d1050894d3ea3b98e1c965c4058208fe1	LICENSE.txt
-100644 blob f5cf6f893abdb884ae8b95536c86224bc196400e	MAINTAINERS.txt
-100644 blob 60d3da592e9ca5e77a4d40f1cc87e9f326bcf1b8	README.txt
-100644 blob e870ff0f0ec39cb94b775e7689cbfec7a0a43afa	UPGRADE.txt
-100644 blob 3ea2b20ace5146a5983dcebe6178fd5a53f00bd3	authorize.php
-100644 blob c6ce5317e88fda48a6543ebcbcc09ec93e9d99ac	cron.php
-040000 tree 64ae554e8a2d34a1065f19781155defae2321eed	includes
-100644 blob 8b831997815f521b150c5b0c27038f6b04e3cf40	index.php
-100644 blob 685d3b4ee3030809ff568b72a499b4170151f601	install.php
-040000 tree 6136fb8262f157e233dff279f8038b4d3c63299e	misc
-040000 tree fdff3556aa49c077b69552ab3dc70ce9c6addbbb	modules
-040000 tree 834a5a0e372a2835965dfbba2602118575b2780c	profiles
-100644 blob ff9e28687d65f7d3206ac7aef1e1a72d620d972e	robots.txt
-040000 tree 2f73b7f8d323b2502d80b92940a1210c8a8568f1	scripts
-040000 tree 0bf42bdca922725c1b8aca3824f121e2fb68c970	sites
-040000 tree 4d21cf083db371f9078bdc1bd72876ab16428f50	themes
-100644 blob d79270305a717064b9c2b8a324d4ecd0526a89ae	update.php
-100644 blob 09983d92542ed094f9bd061af6c07adfdd745b91	web.config</code>
-						</pre>
-						Note: These are typical Drupal files in the drupal docroot
-					</section>
-
-
-
-				</section>
-				<section>
-					<section>
-						<h2>Step 3</h2>
-						<h3>Rollback</h3>
-						<ul>
-							<li>
-								Rollback code to before you made any of your updates.
-								This is likely where master is, or at least was when you
-								made your feature branch.
-							</li>
-
-							<pre>
-								<code data-trim >
-CAR-computer:drupalroot chris$ git branch -v --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386
-* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
-
-CAR-computer:drupalroot chris$ git branch -v --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^
-* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
-
-CAR-computer:drupalroot chris$ git branch -v --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^^
-* forgotten-buckets-feature                b464b45 Final commit after testing, clean up time!
-
-CAR-computer:drupalroot chris$ git branch -v --contains 96edd7c2a5b0baccc9fe3233c4482d0254a41386^^^
-forgotten-buckets-feature b464b45 Final commit after testing, clean up time!
-* master                    808f61e Hide extra links for blog content type
-							</code>
-						</pre>
-					</ul>
-					<aside class="notes">
-						<ul>
-							<li>Use git log on forgotten</li>
-							<li>git reflog</li>
-						</ul>
-					</aside>
-					</section>
-					<section>
-						<h2>The rollback</h2>
-						<pre>
-							<code data-trim >
-CAR-computer:drupalroot chris$ git reset 96edd7c2a5b0baccc9fe3233c4482d0254a41386^^^ --hard
-HEAD is now at 3e4a0cc Remove bucket size from subscriber option
-CAR-computer:drupalroot chris$ git status
-On branch master
-Your branch is behind 'upstream/master' by 13 commits, and can be fast-forwarded.
-(use "git pull" to update your local branch)
-nothing to commit, working directory clean
-							</code>
-						</pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>Step 3.5</h2>
-					<h3>Checkout polished code to working tree</h3>
-					<ul>
-						<li>
-							Now we'll bring back all the code we just worked on,
-							but not the commits with them.
-						</li>
-					</ul>
-					<pre><code>
-CAR-computer:tilthy-rich-compost chris$ git checkout forgotten-buckets-feature .
-CAR-computer:tilthy-rich-compost chris$ git status
-On branch master
-Your branch is behind 'upstream/master' by 13 commits, and can be fast-forwarded.
-(use "git pull" to update your local branch)
-Changes to be committed:
-(use "git reset HEAD <file>..." to unstage)
-
-new file:   drupalroot/sites/all/modules/contrib/bcc/LICENSE.txt
-new file:   drupalroot/sites/all/modules/contrib/bcc/README.TXT
-new file:   drupalroot/sites/all/modules/contrib/bcc/bcc.info
-new file:   drupalroot/sites/all/modules/contrib/bcc/bcc.install
-new file:   drupalroot/sites/all/modules/contrib/bcc/bcc.module
-new file:   drupalroot/sites/all/modules/contrib/field_collection/LICENSE.txt
-new file:   drupalroot/sites/all/modules/contrib/field_collection/README.txt
-new file:   drupalroot/sites/all/modules/contrib/field_collection/ctools/relationships/field_collection_from_field.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field-collection-item.tpl.php
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.admin.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.api.php
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.info
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.info.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.install
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.migrate.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.module
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.pages.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.test
-new file:   drupalroot/sites/all/modules/contrib/field_collection/field_collection.theme.css
-new file:   drupalroot/sites/all/modules/contrib/field_collection/views/field_collection.views.inc
-new file:   drupalroot/sites/all/modules/contrib/field_collection/views/field_collection_handler_relationship.inc
-modified:   drupalroot/sites/all/modules/custom/compost_customizations/compost_customizations.module
-new file:   drupalroot/sites/all/modules/custom/compost_customizations/templates/forgotten-bucket-email.tpl.php
-					</code></pre>
-				</section>
-				<section>
-					<h2>Step 3.848</h2>
-					<h3>Reset staged files</h3>
-					<ul>
-						<li>
-							We'll reset everything <em>not with --hard</em> so that
-							nothing is staged
-						</li>
-					</ul>
-					<pre><code>
-CAR-computer:tilthy-rich-compost chris$ git reset HEAD
-Unstaged changes after reset:
-M	drupalroot/sites/all/modules/custom/compost_customizations/compost_customizations.module
-CAR-computer:tilthy-rich-compost chris$ git status
-On branch master
-Your branch is behind 'upstream/master' by 13 commits, and can be fast-forwarded.
-(use "git pull" to update your local branch)
-Changes not staged for commit:
-(use "git add &lt;file>..." to update what will be committed)
-(use "git checkout -- &lt;file>..." to discard changes in working directory)
-
-	modified:   drupalroot/sites/all/modules/custom/compost_customizations/compost_customizations.module
-
-	Untracked files:
-	(use "git add &lt;file>..." to include in what will be committed)
-
-		drupalroot/sites/all/modules/contrib/bcc/
-		drupalroot/sites/all/modules/contrib/field_collection/
-		drupalroot/sites/all/modules/custom/compost_customizations/templates/forgotten-bucket-email.tpl.php
-
-no changes added to commit (use "git add" and/or "git commit -a")
-				</code></pre>
-				</section>
-
-				<section>
-					<section>
-					<h2>Step 4</h2>
-					<h3>Make all new commits</h3>
-					<ul>
-						<li>use git add -p</li>
-						<li>break code into logical features/sections</li>
-						<li>Make <a href="http://chris.beams.io/posts/git-commit/">nice commit messages</a></li>
-					</ul>
-					</section>
-					<section>
-						<h2>New git history</h2>
-					<pre><code>
-CAR-computer:tilthy-rich-compost chris$ git log 3706ca31771312646f0caf0356cbc9ee3b2f4533
-commit 3706ca31771312646f0caf0356cbc9ee3b2f4533
-Author: Chris Russo <chris.andrews.russo@gmail.com>
-Date:   Mon Jul 6 14:21:20 2015 -0400
-
-Notify subscribers for missed collections
-
-Add a template file for email copy
-Add logic to cron to loop through and mail
-users after they've not notified us
-but have not left their bucket out
-
-Remove old paypal templates and libraries
-that aren't being used
-
-commit f79d6b54a3a7ee25cb391f0978abf85314113461
-Author: Chris Russo <chris.andrews.russo@gmail.com>
-Date:   Fri Jul 3 16:11:51 2015 -0400
-
-Add field collection module
-
-This was done to link a specific forgotten bucket date
-with a flag as to whether or not the user was notified.
-We also want to have "alternate" collection weeks on
-routes which will be faciliated by collections as well
-
-commit b3a655c80225bc41c78bda8775649fbd90aa23db
-Author: Chris Russo <chris.andrews.russo@gmail.com>
-Date:   Mon Jul 6 14:18:54 2015 -0400
-
-Add bcc module
-
-Add to start archiving all emails in the system
-to a specified email account
-					</code></pre>
-				</section>
-				</section>
-				<section>
-					<h2>Step 4.5</h2>
-					<h3>Verify trees are <em>exactly</em> the same</h3>
-					<pre><code>
-CAR-computer:trc chris$ git cat-file -p 3706ca31771312646f0caf0356cbc9ee3b2f4533
-tree f2f767cefda3d283f0fb3b68fd4f377e554b7f57
-parent f79d6b54a3a7ee25cb391f0978abf85314113461
-author Chris Russo &lt;chris.andrews.russo@gmail.com> 1436206880 -0400
-committer Chris Russo &lt;chris.andrews.russo@gmail.com> 1436207673 -0400
-
-Notify subscribers for missed collections
-
-Add a template file for email copy
-Add logic to cron to loop through and mail
-users after they've not notified us
-but have not left their bucket out
-
-Remove old paypal templates and libraries
-that aren't being used
-					</code></pre>
-					<a href="#/13/4">Old Tree</a>
-				</section>
-
-				<section>
-					<section>
-						<h2>Step 5</h2>
-						<h3>Push to shared repository</h3>
-						<h4>Pat yourself on the back... and head to ... </h4>
-					</section>
-					<section>
-						<h2>the drum circle</h2>
-						<img src="images/IMAG4121.jpg" style="max-width: 60%"/>
-					</section>
-					<section>
-						<h2>... and get your face painted ... </h2>
-						<img src="images/IMAG4124.jpg" style="max-width: 60%"/>
-					</section>
-				</section>
-
-
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-				<section>
-					<h2>Preguntas?!</h2>
-				</section>
-
-				<section>
-					<h4>We are</h4>
-					<h2><a href="http://savaslabs.com/">Savas Labs!</a></h2>
-					<a href="http://savaslabs.com/"><img src="images/owl.png"></a>
-					<br />Follow us por favor! Yes, no, maybe?... Yes!
-					<br /><a href="https://twitter.com/Savas_Labs">@Savas_Labs</a>
-					<br />Eh-tee-tee-pee double-u, double-u, double-u...
-					<br /><a href="http://savaslabs.com/">savaslabs.com/</a>
-
-					<br />
-
-				</section>
-
-
-
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				width: 1500, // Make prezzie wider for code blocks
-
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
-	</body>
+<head>
+  <meta charset="utf-8">
+
+  <!-- TODO: Update title. -->
+  <title>Savas Labs - Duke Neurosurgery redesign proposal</title>
+
+  <!-- TODO: Update description and author. -->
+  <meta name="description"
+        content="A presentation to the Neurosurgery leadership">
+  <meta name="author" content="Chris Russo">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+
+  <!-- TODO: Set theme here by replacing CSS filename. -->
+  <link rel="stylesheet" href="css/theme/savasian.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+
+    <!-- Title slide -->
+    <section>
+      <h1>Savas Labs - Duke Neurosurgery</h1>
+      <h3 class="heading-color">Web redesign proposal</h3><br>
+      <p class="centered">By Principal Director: <a href="http://savaslabs.com/team/chris-russo/">Chris Russo</a></p>
+      <aside class="notes">
+        Fast - only got 15 <br>
+        Links 
+      </aside>
+    </section>
+
+    <!-- Introduction slide -->
+    <section data-background-image="images/Savas_847.jpg"  class="intro-slide">
+      <h2>Meet the team!</h2>
+      <aside class="notes">
+        Left to right <br>
+        Hired 3 more since this photo
+      </aside>
+    </section>
+
+    <!-- Fragments and speaker notes -->
+    <section>
+      <h2>Presentation overview</h2>
+      <p class="centered">We'll cover</p>
+      <ul>
+        <li class="fragment grow">Your goals</li>
+        <li class="fragment grow">Our process</li>
+        <li class="fragment grow">Proposal highlights</li>
+        <li class="fragment grow">Portfolio</li>
+        <li class="fragment grow">Our credentials</li>
+        <li class="fragment grow">Q&A</li>
+      </ul>
+    </section>
+
+
+    <!-- Blockquote and centered text -->
+    <section>
+      <h2>Your goals</h2>
+      <ul class="compact-list">
+        <li class="fragment highlight-current-magenta">Showcase the full scope of our research endeavors</li>
+        <li class="fragment highlight-current-magenta">Showcase the breadth and excellence of our training programs</li>
+        <li class="fragment highlight-current-magenta">Increase/capture higher-caliber applicants to our training program</li>
+        <li class="fragment highlight-current-magenta">Messaging will support overall Department mission, vision and goals</li>
+        <li class="fragment highlight-current-magenta">Site design will be uncluttered, contemporary, and visually appealing</li>
+        <li class="fragment highlight-current-magenta">Ease of CMS administration</li>
+      </ul>
+      <aside class="notes">
+        1. Artifically small, spun off of surgery <br>
+        2. Residency/fellowship. Recognize lower ranking U.S News <br>
+        3. High-caliber, as yet-defined, help establish metrics <br>
+        4. Messaging - lots of audiences, research partners, donors, applicants, patients, faculty <br>
+        5. Design = passive communication vs. prior active <br>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Our process</h2>
+      <ul>
+        <li class="fragment highlight-current-magenta">Discovery phase</li>
+        <li class="fragment highlight-current-magenta">Weekly meetings</li>
+        <li class="fragment highlight-current-magenta">Iterate, stage, and prioritize.</li>
+      </ul>
+      <aside class="notes">
+        General Not rocket/brain science. <br>
+        1. Get to know stakeholders better. See things you can't. Phases? <br>
+        2. Stay in constant communication. Have simple pm platform. Great that Tracey wants collaboration <br>
+        3. Stage updates. Lots of decisions we can help you through, make recommendations based on budget
+      </aside>
+    </section>
+
+   <section>
+      <h2>Proposal highlights</h2>
+      <ul>
+        <li>Aggressive timeline as stated</li>
+        <li>We're excited to work with Tracey</li>
+        <li>Copywriting and photography services available</li>
+      </ul>
+     <aside class="notes">
+       1. Two months - assumes simplistic buildout, no automated migration <br>
+       2. We're best when we're collaborating. 75-80% <br>
+       3.
+     </aside>
+    </section>
+
+
+    <!-- Nested vertical slides -->
+    <section>
+      <section>
+        <h2>Portfolio Work</h2>
+      </section>
+
+      <section>
+        <h2>Hunter Boots</h2>
+        <img src="images/hunter.png">
+        <a href="http://us.hunterboots.com/">http://us.hunterboots.com/</a>
+        <aside class="notes">
+          1. Site I started working on in 2011 former employer <br>
+          Dan - Mobile theme buildout from photoshop
+          e-commerce product updates
+        </aside>
+      </section>
+
+      <section>
+        <h2>Crown Beverage Company</h2>
+        <img src="images/crown.png">
+        <a href="http://www.crowncork.com/">http://www.crowncork.com/</a>
+        <aside class="notes">
+          Collaboration - built out mobile menu and various elements
+        </aside>
+      </section>
+
+      <section>
+        <h2>Tilthy Rich Compost</h2>
+        <img src="images/tilthy.png">
+        <a href="https://tilthyrichcompost.com/">https://tilthyrichcompost.com/</a>
+        <aside class="notes">
+          Did all of the theming work<br>
+           pmp.savasdev.com if need be
+        </aside>
+      </section>
+
+    </section>
+
+    <!-- Blockquote and centered text -->
+    <section>
+      <h2>Our credentials</h2>
+      <p class="centered">We...</p>
+      <ul>
+        <li> host the <a href="http://www.meetup.com/triDUG/events/229414499/">Triangle Drupal Meetup</a></li>
+        <li> speak at conferences: <a href="http://savaslabs.com/2015/08/13/drupalcamp-asheville.html">Asheville</a>, <a href="http://savaslabs.com/2016/03/10/drupal-camp-florida-2016-recap.html">Orlando</a>, and Drupalcon New Orleans 2016 </li>
+        <li> share our expertise <a href="http://savaslabs.com/news/">on our blog</a>: (Drupal 6 upgrade specific series: <a href="http://savaslabs.com/2015/12/10/drupal-6-part-2.html">1</a>, <a href="http://savaslabs.com/2015/12/10/drupal-6-part-2.html">2</a>, <a href="http://savaslabs.com/2016/01/25/drupal-6-part-3.html">3</a>, <a href="http://savaslabs.com/2016/02/24/drupal-6-part-4.html">4</a>)</li>
+        <li> donate code back to <a href="https://www.drupal.org/savas-labs"> the Drupal community</a></li>
+        <li> have <a href="http://savaslabs.com/team/lisa-ridley/">Acquia developer certification</a> (Lisa Ridley)</li>
+        <li> donate our skills to contribute to organizations with Drupal websites (<a href="https://www.durhamatletico.com/">Durham Atletico</a>, <a href="https://www.warmshowers.org/">Warmshowers.org Foundation</a>) </li>
+      </ul>
+    </section>
+
+    <!-- Blockquote and centered text -->
+    <section data-background-image="images/Savas_883.jpg">
+      <h2>Questions?</h2>
+      <p class="centered">Savas Labs</p>
+      <img src="images/savas_logo.png" class="no-border" style="background: none">
+    </section>
+
+  </div><!-- slides -->
+</div><!-- reveal -->
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+
+
+    slideNumber: true,
+    overview: true, // I think I want this
+
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'zoom', // none/fade/slide/convex/concave/zoom
+    transitionSpeed: 'slow',
+    viewDistance: 3,
+
+    // Optional reveal.js plugins
+    dependencies: [
+      {
+        src: 'lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: 'plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      {src: 'plugin/zoom-js/zoom.js', async: true},
+      {src: 'plugin/notes/notes.js', async: true}
+    ]
+  });
+
+  // Turn autoSlide off
+  Reveal.configure({ autoSlide: 0 });
+
+</script>
+
+</body>
 </html>
