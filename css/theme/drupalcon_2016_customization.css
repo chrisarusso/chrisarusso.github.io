@@ -1,0 +1,9 @@
+
+.gallery-image.title {
+    font-size: .85em;
+    width: 100%;
+}
+
+body {
+    background: #14133b url("../../images/logo.png") no-repeat fixed 2% 2%;
+}

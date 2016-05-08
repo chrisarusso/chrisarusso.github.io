@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/drupalcon_2016.css" id="theme">
+		<link rel="stylesheet" href="css/theme/drupalcon_2016_customization.css" id="theme">
     <link href='https://fonts.googleapis.com/css?family=Smythe' rel='stylesheet' type='text/css'>
 	</head>
 
@@ -37,30 +38,93 @@
                         <h4 class="subtitle bg-gold">Drupal 8 and beyond</h4>
 					</section>
 
-					<section data-state="white">
-                    <h1>Things to know</h1>
-                        Polls and Questions on Sli.do
-                    </section>
+
 
                 <section data-state="white">
                     <h1>Who we are</h1>
-                    <img src="assets/logo.png" alt="Savas Labs logo"> <br>
-                    @Savas_Labs
+                    <img class="halfs thirds" src="assets/Savas_883.jpg" alt="Team funny shot">
+                    <img class="halfs thirds" src="assets/Savas_886.jpg" alt="Team funny shot">     <br>
+                    <img src="assets/logo.png" alt="Savas Labs logo">
+
                 </section>
 
                 <section data-state="white">
-                    <h1>Who I am</h1>
-                    Sli.do: #2262
+                    <h1>Where we are</h1>
+                    <img src="http://www.trianglencfilm.com/img/ResearchTriangleRegionMap.jpg" alt="Map of triangle"> <br>
+
                 </section>
 
                 <section data-state="white">
+                    <h1>... or maybe this helps more?</h1>
+                    <img src="http://files.www.workinthetriangle.com/Duke-UNC-NC-State.jpg" alt="Triangle sports teams logos"> <br>
+                </section>
+
+
+                <section class="section-special" data-state="purplechurch">
+
+
+                    <div class="gallery border-purple">
+                        <h1>We're also in</h1>
+
+                        <span class="gallery-image title">Boston <br> MA</span>
+                        <img class="gallery-image image"  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Portland,_OR_and_Mount_Hood_from_Pittock_Mansion.jpg" alt="Photo of Portland, OR">
+                        <span class="gallery-image title">Chattanooga <br> TN</span>
+                        <img class="gallery-image image" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Bostonstraight.jpg" alt="Photo of Boston, MA">
+                        <span class="gallery-image title">Portland <br> OR </span>
+                        <img class="gallery-image image" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Chattanooga,_Tennessee_Skyline.JPG" alt="Photo of Chattanooga, TN">
+                    </div>
+                </section>
+
+
+
+
+                <section data-state="white">
+                    <h1>Who I am?</h1>
+
+                    <aside class="notes">
+                        @todo: Funny picture of narcissism vs. laziness: Kanye / Ghandi
+                        Not narcisstic enough to have my own Twitter feed
+
+                    </aside>
+                </section>
+
+
+
+                <section data-state="white">
+                    <h1>My roots</h1>
+
+                    <img src="assets/drupal-butcher.jpg" alt="Drupal butcher shop">
+                    <aside class="notes">
+                        @todo: Funny picture of narcissism vs. laziness: Kanye / Ghandi
+                        Not narcisstic enough to have my own Twitter feed
+
+                    </aside>
+                </section>
+
+
+
+                <section data-state="white">
+                    <h1>What we're talking about today</h1>
+                    Total value of ownership
+                </section>
+
+                <section data-state="white">
+                    <h1>Total value of ownership</h1>
+                    <ul>
+                        <li>Defined by each organization</li>
+                    </ul>
+                    <aside class="notes">
+                        More specifically each org's mission
+
+                    </aside>
+                </section>
+
+                <section data-state="white" data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4">
                     <h1>Things to know</h1>
-                    Sli.do: #2262
-                </section>
+                    Polls and Questions on Sli.do
+                   <!-- <iframe width="1280" height="120" src="https://www.youtube.com/embed/KNZVzIfJlY4?start=23&end=33&autoplay=1&rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>    -->
 
-                <section data-state="white">
-                    <h1>Things to know</h1>
-                    Sli.do: #2262
+
                 </section>
 
                 <section data-state="white">
@@ -178,21 +242,51 @@
 
 		<script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				center: true,
-				transition: 'linear',
-                slideNumber: true,
-                width: 1024,
+            Reveal.initialize({
+
+
                 slideNumber: true,
                 overview: true, // I think I want this
+                width: 1024,
+                transition: 'linear',
+                center: true,
 
                 controls: true,
                 progress: true,
                 history: true,
                 center: true,
-			});
+
+                transitionSpeed: 'slow',
+                viewDistance: 3,
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    {
+                        src: 'lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/marked.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/markdown.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function () {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    {src: 'plugin/zoom-js/zoom.js', async: true},
+                    {src: 'plugin/notes/notes.js', async: true}
+                ]
+            });
 
 
 
