@@ -7,3 +7,27 @@
 body {
     background: #14133b url("../../images/logo.png") no-repeat fixed 2% 2%;
 }
+
+html.white .reveal .slides {
+    margin-top: 1.1em;
+}
+
+.reveal img {
+    max-height: 500px;
+}
+
+.halfs {
+    width: 45%;
+}
+
+.tall-slide {
+    top: -50px !important;
+}
+
+.reveal .gallery .gallery-image {
+    max-height: 235px;
+}
+
+.reveal .color-white {
+    color: #FFF;
+}
