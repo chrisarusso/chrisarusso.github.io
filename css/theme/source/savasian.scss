@@ -8,7 +8,8 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 
 /**
  * Solarized colors by Ethan Schoonover, adapted to match Savas color scheme.
@@ -56,8 +57,9 @@ $linkColorHover: $yellow;
 $selectionColor: $mainColor;
 $selectionBackgroundColor: lighten($orange, 20%);
 
-$headingFont: 'Ubuntu Condensed', Impact, sans-serif;
-$mainFont: 'Source Sans Pro', sans-serif;
+$headingFont: 'Raleway', sans-serif;
+
+$mainFont: 'Raleway', sans-serif;
 
 $heading1Size: 3em;
 
