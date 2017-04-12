@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>DrupalCon New-Orleans 2016</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/drupalcon_2016.css" id="theme">
+		<link rel="stylesheet" href="css/theme/drupalcon_2016_customization.css" id="theme">
+    <link href='https://fonts.googleapis.com/css?family=Smythe' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+            <div class="slides">
+
+<!-- start of intro -->
+                <section class="section-cover" data-state="purpleskyline">
+                    <img src="assets/drupalcon-new-orleans-logo.png" alt="">
+                </section>
+
+                <section class="section-session-title" data-state="greyskyline">
+                    <img src="assets/cover-logo.png" alt="" class="cover-logo">
+                    <h1 class="title main-title bg-purple">Savas Labs</h1>
+                    <h4 class="subtitle bg-gold">Chris Russo</h4>
+                </section>
+
+                <section class="section-session-title" data-state="greyskyline">
+                    <img src="assets/cover-logo.png" alt="" class="cover-logo">
+                    <h1 class="title main-title bg-purple">Total value of ownership</h1>
+                    <h4 class="subtitle bg-gold">Drupal 8 and beyond</h4>
+                </section>
+
+                <section data-state="white">
+                    <h1>Who we are</h1>
+                    <img class="halfs " src="assets/Savas_883.jpg" alt="Team funny shot">
+                    <img class="halfs " src="assets/Savas_886.jpg" alt="Team funny shot">     <br>
+                    <img src="assets/logo.png" alt="Savas Labs logo">
+                </section>
+
+                <section data-state="white">
+                    <h1>Where we are</h1>
+                    <img src="/assets/ResearchTriangleRegionMap.jpg" alt="Map of triangle"> <br>
+                </section>
+
+                <section data-state="white">
+                    <h1>... or maybe this helps more?</h1>
+                    <img src="/assets/Duke-UNC-NC-State.jpg" alt="Triangle sports teams logos"> <br>
+                    <aside class="notes">
+                        I for one couldn't care less, which I think is helpful to this talk
+                    </aside>
+                </section>
+
+                <section class="section-special" data-state="purplechurch">
+                    <div class="gallery border-purple">
+                        <h1>We're also in</h1>
+                        <span class="gallery-image title">Boston <br> MA</span>
+                        <img class="gallery-image image"  src="/assets/Portland.jpg" alt="Photo of Portland, OR">
+                        <span class="gallery-image title">Truckee <br> CA</span>
+                        <img class="gallery-image image" src="/assets/Boston.jpg" alt="Photo of Boston, MA">
+                        <span class="gallery-image title">Chicago <br> IL </span>
+                        <img class="gallery-image image" src="/assets/Chattanooga.jpg" alt="Photo of Chattanooga, TN">
+                    </div>
+                    <aside class="notes">
+                        Distributed
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Who I am</h1>
+
+                    <div class="half-width">
+                        <h3 style="margin-bottom: 0;">Work me</h3>
+                        <img class="image" src="assets/chris-russo.jpg" alt="Photograph of Chris Russo">
+                    </div>
+                    <div class="half-width">
+                        <h3 style="margin-bottom: 0;">Real me</h3>
+                        <img class="image" src="assets/IMAG4843.jpg" alt="">
+                    </div>
+                    <aside class="notes">
+                        If you paid close attention to the last slide, you should have expected this
+                        What's my role at Savas Labs
+                        What I like to do?
+                        Work me for the next 45 minutes, real me at social events
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Other things I've done </h1>
+
+                    <img src="assets/bob-q-4-tilthy.jpg" alt="Tilthy Rich Compost rider" height="450">
+                    <aside class="notes">
+                       TRC - founded bicycle powered
+                    </aside>
+                </section>
+
+
+                <section class="section-special" data-state="purplestamp">
+                    <div class="gallery border-purple" style="padding: 0;">
+                        <h1>You can't follow me...</h1>
+                        <h3 class="subtitle">Follow us <a href="https://twitter.com/Savas_Labs">@Savas_Labs</a> </h3>
+                        <img src="assets/Narcissism%20v%20laziness.png" alt="Narcissism vs laziness graph">
+                    </div>
+                </section>
+
+                <section data-state="white">
+                    <h1>Who are you?</h1>
+                    <aside class="notes">
+                        Location:
+                            Raleigh
+
+                        Questions:
+                            Developers
+                            Designers
+                            Other
+
+                        Freelance vs with a company
+
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>My roots</h1>
+
+                    <img src="assets/drupal-butcher.jpg" alt="Drupal butcher shop" height="450">
+                    <aside class="notes">
+                        Crowning achievement
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>What we're talking about today</h1>
+                    <span style="text-decoration: line-through;">Total value of ownership</span>
+                    <br>
+                    Drupal, where it fits in the CMS world, and why it matters to you
+
+                    <aside class="notes">
+                        Look at the CMS landscape as a whole, understand the value we're looking to deliver, understand how
+                        Drupal is able to deliver that value (with our help)
+
+                        I am biased, but have attempted to be impartial
+
+                    </aside>
+                </section>
+
+                <section class="section-special" data-state="purplechurch">
+                    <h1 class="color-white bg-purple">Who are the proprietary players out there?</h1>
+                    <div class="gallery border-purple">
+
+                    <img class="gallery-image image"  src="assets/sitecore.png" alt="Sitecore logo">
+                    <img class="gallery-image image"  src="assets/adobe-em.png" alt="Adobe EM logo">
+                    <img class="gallery-image image"  src="assets/episerver.jpg" alt="Episerver logo">
+                    <img class="gallery-image image"  src="assets/ektron_epi_merger.jpg" alt="Ektron / Episerver merger logo">
+                    <img class="gallery-image image"  src="assets/sdl.jpg" alt="SDL logo">
+                    <img class="gallery-image image"  src="assets/oracle.png" alt="Oracle logo">
+                    <img class="gallery-image image"  src="assets/hp.jpg" alt="HP logo">
+                    <img class="gallery-image image"  src="assets/opentext.jpg" alt="Open Text logo">
+                        </div>
+                    <aside class="notes">
+
+                        First of all there are an intimidating amount of solutions
+                        They also fit very different markets, beach-cruiser vs. high-end racing bike
+                            Too far up on the personal twitter graph to have fun at the beach
+                        Admit, reading, talking to others. This is a mutli-million dollar engagement
+                        Sort of apologize for taking shot at opentext, but they're canadian, come on
+                            Etkron merger
+
+                        Ask question about what you're competing against
+
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Proprietary CMS leaders</h1>
+                    <img src="assets/forester-screenshot.png" alt="Screenshot of forrester analysis">
+                    <aside class="notes">
+                        Forrester
+                        Notice only non-proprietary system up there?
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Proprietary CMS leaders</h1>
+                    <img src="assets/gartner-screenshot.png" alt="Screenshot of forrester analysis">
+                    <aside class="notes">
+                        Gartner
+                        Two things worth pointing out
+                            Automattic = Wordpress
+                            Even stronger presence for Acquia/Drupal
+                    </aside>
+                </section>
+
+                <section class="section-special" data-state="purplechurch">
+                    <h1 class="color-white bg-purple">Open source leaders</h1>
+                    <div class="gallery border-purple">
+                        <img class="gallery-image image"  src="assets/wordpress-logo-notext-rgb.png" alt="Wordpress logo">
+                        <img class="gallery-image image"  src="assets/joomla.png" alt="Joomla logo">
+                        <img class="gallery-image image"  src="assets/drupal%208%20logo.png" alt="Drupal logo">
+                        <img class="gallery-image image"  src="assets/plone.png" alt="Plone logo">
+                        <img class="gallery-image image"  src="assets/blogger.svg" alt="Blogger logo">
+                        <img class="gallery-image image"  src="assets/dnn-logo.png" alt="Dotnetnuke logo">
+                    </div>
+
+                    <aside class="notes">
+                        Plone - government - perceived security CVE (common vulnerabilities and exposures)
+                            Less of a target. When compared to Drupal, self reports. Drupalgeddon handled well,
+                               Dot net nuke
+                    </aside>
+                </section>
+
+
+                <section class="section-special" data-state="purplechurch">
+                    <h1 class="color-white bg-purple">Open source: who to watch</h1>
+                    <div class="gallery border-purple">
+                        <img class="gallery-image image"  src="assets/craft-logo.jpg" alt="Craft logo">
+                        <img class="gallery-image image"  src="assets/magento-logo.png" alt="Magento logo">
+                        <img class="gallery-image image"  src="assets/presta-shop.jpg" alt="Prestashop logo">
+                        <img class="gallery-image image"  src="assets/ghost.png" alt="Ghost logo">
+                        <img class="gallery-image image"  src="assets/keystonejs.png" alt="Keystonejs logo">
+
+                    </div>
+                    <aside class="notes">
+                        CAR-computer:Ghost chris$ git rev-list --count master --since=2016-may-10
+                        949
+
+                        CAR-computer:keystone chris$ git rev-list --count master --since=2016-may-10
+                        2076
+
+                        CAR-computer:PrestaShop chris$  git rev-list --count develop --since=2016-may-10
+                        4653
+
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                <h1>Open source CMSes =</h1>
+                    <img src="assets/PHP-logo.svg" alt="PHP logo">
+                    <h1>~80%</h1>
+
+                    <aside class="notes">
+
+                </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Where does Drupal fit in?</h1>
+                    <img src="assets/drupal-position.png" alt="W3techs cms comparison chart">
+                    <aside class="notes">
+                        I was actually resistant to seeing this, but it seems quite sound
+                    </aside>
+                </section>
+                <section data-state="white">
+                    <h1>Where does Drupal fit in? 2017-Apr-11 snapshot.</h1>
+                    <img src="assets/drupal-position-2017-apr-11.png" alt="W3techs cms comparison chart">
+                </section>
+
+                <section data-state="white">
+                    <h1>Market Trends</h1>
+                    <img src="assets/drupal-joomla-wordpress-trends.png" alt="Open source CMS trends">
+                    <aside class="notes">
+                        Comparing the three marge players
+                        Markets and markets says CMS industry essentially double from 2015 to 2020
+                        to a $6.9 billion industry
+                    </aside>
+                </section>
+
+
+                <section data-state="white">
+                    <h1>What is value?</h1>
+                    ...smart people working real time on solving problems and creating new value.
+                </section>
+
+
+                <section data-state="white">
+                    <h1>Measuring Drupal's value</h1>
+                    <a href="https://www.openhub.net/p/drupal">https://www.openhub.net/p/drupal</a>
+
+                    <aside class="notes">
+                        used to be called ohloh - more fun
+                    </aside>
+
+                </section>
+
+                <section data-background-video="/assets/kokomo.mp4"></section>
+
+
+                <section data-state="white">
+                    <h1>Drupal's value</h1>
+                    <h3 class="subtitle">according to Cocomo</h3>
+                    <ul>
+                        <li>Lines of code: ~1.2 million!</li>
+                        <li>194 person-years of work!</li>
+
+                    </ul>
+
+                    <aside class="notes">
+                        - 86 years for Joomla
+                        - 108 years for Wordpress
+
+
+                        Conservative by an order of magnitude
+                        Written in 1981
+                        2,000 - 100,000 lines of code
+                        Distributed team was hardly a possibility then
+
+                            wordpress - 55 contributors
+                            joomla - 329
+                        http://drupalcores.com/ - 3998
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Drupal's value</h1>
+                    <h3 class="subtitle">active community </h3>
+
+                    <img src="assets/drupal-community-numbers.jpg" alt="Drupal community numbers">
+                    <aside class="notes">
+
+                        wordpress - 55 contributors
+                        joomla - 329
+                        http://drupalcores.com/ - 3998
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Drawbacks to Drupal: Steep learning curve</h1>
+                    <img src="assets/learning-curve.jpg" alt="Drupal learning curve">
+
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Drawbacks to Drupal</h1>
+                    <ul>
+                        <li>Major version upgrades are <s>impossible</s> tough</li>
+                        <li>Historically very developer-oriented</li>
+                    </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+
+                <section data-state="white">
+                    <h1>How is Drupal 8 doing?</h1>
+                    <h3 class="subtitle">Adoption</h3>
+                    <img src="assets/drupal-8-adoption.png" alt="Drupal 7 stats during release">
+                    <aside class="notes">
+                        Context: Versions in Drupal
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>Adoption in Drupal 7</h1>
+                    <img src="assets/drupal-7-adoption.png" alt="Drupal 7 stats during release">
+                </section>
+
+                <section data-state="white">
+                    <h1>Adoption in Drupal 8 - Today's snapshot 2017-Apr-11</h1>
+                    <img src="assets/drupal-8-adoption-update.png" alt="Drupal 7 stats during release">
+                </section>
+
+                <section data-state="white">
+                    <h1>Slower adoption in Drupal 8</h1>
+                    <h3 class="subtitle">Potential causes</h3>
+                    <ul>
+                        <li>Migration difficulties</li>
+                        <li>Key contrib slowness</li>
+                        <li>Signficant architectural changes</li>
+
+                    </ul>
+                    <aside class="notes">
+                        e-commerce
+                        pathauto
+                    </aside>
+                </section>
+
+                <section data-state="white">
+                    <h1>What does this mean to you?</h1>
+                    <ul>
+                        <li>Learning curve is substantial</li>
+                        <li>Above average developer salaries</li>
+                        <li>Historically developer-oriented community now embracing UX professionals and designers - YMMV</li>
+                        <li>
+                </section>
+
+
+
+                <section class="section-end" data-state="purpleskyline">
+                    <img src="assets/drupalcon-new-orleans-logo.png" alt="">
+                    <h1 class="color-white bg-purple">The end!</h1>
+                    <div class="evaluate bg-white border-gold">
+                        <p class="color-gold">@Savas_labs</a></p>
+                    </div>
+                    <div class="thanks">
+                        <h2>Thanks!</h2>
+                    </div>
+                </section>
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+            Reveal.initialize({
+
+
+                slideNumber: true,
+                overview: true, // I think I want this
+                width: 1024,
+                transition: 'linear',
+                center: true,
+
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transitionSpeed: 'slow',
+                viewDistance: 3,
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    {
+                        src: 'lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/marked.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/markdown.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function () {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    {src: 'plugin/zoom-js/zoom.js', async: true},
+                    {src: 'plugin/notes/notes.js', async: true}
+                ]
+            });
+
+
+
+        </script>
+
+	</body>
+</html>
